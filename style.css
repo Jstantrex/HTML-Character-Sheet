@@ -1,0 +1,13 @@
+* {
+	padding:0px;
+	margin: 0px;
+}
+
+.topBar {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.topBar input {
+	width:
+}
