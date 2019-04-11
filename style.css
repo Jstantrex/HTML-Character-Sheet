@@ -37,9 +37,23 @@ select{
 	flex-wrap: wrap;
 }
 
-.stats .statblock input {
+#stats .statblock input {
 	height: 50px;
 	width: 50px;
 	text-align: center;
-	
+}
+
+.statblock {
+	display: flex;
+	flex-direction: row;
+	text-align: center;
+	align-content: center;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+#stats .statblock input::-webkit-inner-spin-button,
+#stats .statblock input::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
 }

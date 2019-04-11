@@ -1,135 +1,176 @@
 <!doctype html>
 <html>
-	<head>
-		<title>D&D Character Sheet</title>
-		<link rel="stylesheet" href="style.css" />
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
-		<link rel="icon" href="pictures/icon.png" />
-	</head>
-	<body>
-		<div class="topBar">
-			<div class="name">
-				<h1>Name</h1>
-				<input/>
-			</div>
-			<div class="class">
-				<h2>Class</h2>
-				<select>
-					<option value="barbarian">Barbarian</option>
-					<option value="bard">Bard</option>
-					<option value="cleric">Cleric</option>
-					<option value="druid">Druid</option>
-					<option value="fighter">Fighter</option>
-					<option value="monk">Monk</option>
-					<option value="paladin">Paladin</option>
-					<option value="ranger">Ranger</option>
-					<option value="rogue">Rogue</option>
-					<option value="sorcerer">Sorcerer</option>
-					<option value="warlock">Warlock</option>
-					<option value="wizard">Wizard</option>
-				</select> <!--Class Drop Down-->
-			</div>
-			<div class="race">
-				<h2>Race</h2>
-				<select>
-					<option value="aarakocra">Aarakocra</option>
-					<option value="aasimar">Aasimar</option>
-					<option value="bugbear">Bugbear</option>
-					<option value="changeling">Changeling</option>
-					<option value="centaur">Centaur</option>
-					<option value="dragonborn">Dragonborn</option>
-					<option value="dwarf">Dwarf</option>
-					<option value="elf">Elf</option>
-					<option value="firbolg">Firbolg</option>
-					<option value="genasi">Genasi</option>
-					<option value="gith">Gith</option>
-					<option value="goblin">Goblin</option>
-					<option value="goliath">Goliath</option>
-					<option value="gnome">Gnome</option>			
-					<option value="half-elf">Half-Elf</option>
-					<option value="halfling">Halfling</option>
-					<option value="half-orc">Half-Orc</option>
-					<option value="hobgoblin">Hobgoblin</option>
-					<option value="human">Human</option>
-					<option value="kalashtar">Kalashtar</option>
-					<option value="kenku">Kenku</option>
-					<option value="kobold">Kobold</option>
-					<option value="lizardfolk">Lizardfolk</option>
-					<option value="loxodon">Loxodon</option>
-					<option value="minotaur">Minotaur</option>
-					<option value="orc">Orc</option>
-					<option value="shifter">Shifter</option>
-					<option value="simic">Simic Hybrid</option>
-					<option value="tabaxi">Tabaxi</option>
-					<option value="tiefling">Tiefling</option>
-					<option value="tortle">Tortle</option>
-					<option value="triton">Triton</option>
-					<option value="vedalken">Vedalken</option>
-					<option value="warforged">Warforged</option>
-					<option value="yuan-ti">Yuan-ti Pureblood</option>
-				</select> <!--Race Drop Down-->
-			</div>
-			<div class="subrace">
-				<h2>Subrace</h2>
-				<select>
-					
-				</select> <!--Race Drop Down-->
-			</div>
-			<div class="background">
-				<h2>Background</h2>
-				<select>
-					<option value="acolyte">Acolyte</option>
-					<option value="anthropologist">Anthropologist</option>
-					<option value="archaeologist">Archaeologist</option>
-					<option value"azorius">Azorius Functionary</option>
-				</select>	<!--Background Drop Down-->	
-			</div>
-			<div class="alignment">
-				<h2>Alignment</h2>
-				<select>
-					<option value="lg">Lawful Good</option>
-					<option value="ng">Neutral Good</option>
-					<option value="cg">Chaotic Good</option>
-					<option value="ln">Lawful neutral</option>
-					<option value="n">Neutral</option>
-					<option value="cn">Chaotic Neutral</option>
-					<option value="le">Lawful Evil</option>
-					<option value="ne">Neutral Evil</option>
-					<option value="ce">Chaotic Evil</option>
-				</select> <!--Alignment Drop Down-->
-			</div>
+
+<head>
+	<title>D&D Character Sheet</title>
+	<link rel="stylesheet" href="style.css" />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" /> <!--fontawesome for free to use icons -->
+	<link rel="icon" href="pictures/icon.png" />
+	<script src="//cdnjs.cloudflare.com/ajax/libs/numbro/2.1.0/numbro.min.js"></script> <!-- numbro for formatting numbers -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!-- JQuery -->
+	<script src="scripts.js"></script>
+</head>
+
+<body>
+	<div class="topBar">
+		<div class="name">
+			<h1>Name</h1>
+			<input type="text" />
 		</div>
-		<div class="stats">
-			<div class="statblock" id="strength">
-				<label>Strength</label><br>
-				<input id="strength-stat" type="text" value="10" maxlength="2">
+		<div>
+			<h2>Class</h2>
+			<select id="class">
+				<option>Select One</option>
+				<option value="barbarian">Barbarian</option>
+				<option value="bard">Bard</option>
+				<option value="cleric">Cleric</option>
+				<option value="druid">Druid</option>
+				<option value="fighter">Fighter</option>
+				<option value="monk">Monk</option>
+				<option value="paladin">Paladin</option>
+				<option value="ranger">Ranger</option>
+				<option value="rogue">Rogue</option>
+				<option value="sorcerer">Sorcerer</option>
+				<option value="warlock">Warlock</option>
+				<option value="wizard">Wizard</option>
+			</select>
+			<!--Class Drop Down-->
+		</div>
+		<div>
+			<h2>Race</h2>
+			<select id="race">
+				<option>Select One</option>
+				<option value="aarakocra">Aarakocra</option>
+				<option value="aasimar">Aasimar</option>
+				<option value="bugbear">Bugbear</option>
+				<option value="changeling">Changeling</option>
+				<option value="centaur">Centaur</option>
+				<option value="dragonborn">Dragonborn</option>
+				<option value="dwarf">Dwarf</option>
+				<option value="elf">Elf</option>
+				<option value="firbolg">Firbolg</option>
+				<option value="genasi">Genasi</option>
+				<option value="gith">Gith</option>
+				<option value="goblin">Goblin</option>
+				<option value="goliath">Goliath</option>
+				<option value="gnome">Gnome</option>
+				<option value="half-elf">Half-Elf</option>
+				<option value="halfling">Halfling</option>
+				<option value="half-orc">Half-Orc</option>
+				<option value="hobgoblin">Hobgoblin</option>
+				<option value="human">Human</option>
+				<option value="kalashtar">Kalashtar</option>
+				<option value="kenku">Kenku</option>
+				<option value="kobold">Kobold</option>
+				<option value="lizardfolk">Lizardfolk</option>
+				<option value="loxodon">Loxodon</option>
+				<option value="minotaur">Minotaur</option>
+				<option value="orc">Orc</option>
+				<option value="shifter">Shifter</option>
+				<option value="simic">Simic Hybrid</option>
+				<option value="tabaxi">Tabaxi</option>
+				<option value="tiefling">Tiefling</option>
+				<option value="tortle">Tortle</option>
+				<option value="triton">Triton</option>
+				<option value="vedalken">Vedalken</option>
+				<option value="warforged">Warforged</option>
+				<option value="yuan-ti">Yuan-ti Pureblood</option>
+			</select>
+			<!--Race Drop Down-->
+		</div>
+		<div>
+			<h2>Subrace</h2>
+			<select id="subrace">
+				<option>Select a Race</option>
+			</select>
+			<!--Subrace Drop Down-->
+		</div>
+		<div>
+			<h2>Background</h2>
+			<select id="background">
+				<option>Select One</option>
+				<option value="acolyte">Acolyte</option>
+				<option value="anthropologist">Anthropologist</option>
+				<option value="archaeologist">Archaeologist</option>
+				<option value"azorius">Azorius Functionary</option>
+			</select>
+			<!--Background Drop Down-->
+		</div>
+		<div>
+			<h2>Alignment</h2>
+			<select id="alignment">
+				<option value="lg">Lawful Good</option>
+				<option value="ng">Neutral Good</option>
+				<option value="cg">Chaotic Good</option>
+				<option value="ln">Lawful neutral</option>
+				<option value="n">Neutral</option>
+				<option value="cn">Chaotic Neutral</option>
+				<option value="le">Lawful Evil</option>
+				<option value="ne">Neutral Evil</option>
+				<option value="ce">Chaotic Evil</option>
+			</select>
+			<!--Alignment Drop Down-->
+		</div>
+	</div>
+	
+	<div id="stats">
+		<div class="statblock">
+			<label>Strength</label>
+			<div>
+				<input class="stat" id="strength" type="number" value="10" maxlength="2" min="1" max="24" onchange="updateStat('strength')">
 				<p id="strength-mod">0</p>
 			</div>
-			<div class="statblock" id="dexterity">
-				<label>Dexterity</label><br>
-				<input id="dexterity-stat" type="text" value="10" maxlength="2">
+		</div>
+		
+		<div class="statblock">
+			<label>Dexterity</label>
+			<div>
+				<input class="stat" id="dexterity" type="number" value="10" maxlength="2" min="1" max="24" onchange="updateStat('dexterity')">
 				<p id="dexterity-mod">0</p>
 			</div>
-			<div class="statblock" id="constitution">
-				<label>Constitution</label><br>
-				<input id="constitution-stat" type="text" value="10" maxlength="2">
+		</div>
+		
+		<div class="statblock">
+			<label>Constitution</label>
+			<div>
+				<input class="stat" id="constitution" type="number" value="10" maxlength="2" min="1" max="24" onchange="updateStat('constitution')">
 				<p id="constitution-mod">0</p>
 			</div>
-			<div class="statblock" id="intelligence">
-				<label>Intelligence</label><br>
-				<input id="intelligence-stat" type="text" value="10" maxlength="2">
+		</div>
+		
+		<div class="statblock">
+			<label>Intelligence</label>
+			<div>
+				<input class="stat" id="intelligence" type="number" value="10" maxlength="2" min="1" max="24" onchange="updateStat('intelligence')">
 				<p id="intelligence-mod">0</p>
 			</div>
-			<div class="statblock" id="wisdom">
-				<label>Wisdom</label><br>
-				<input id="wisdom-stat" type="text" value="10" maxlength="2">
+		</div>
+		
+		<div class="statblock">
+			<label>Wisdom</label>
+			<div>
+				<input class="stat" id="wisdom" type="number" value="10" maxlength="2" min="1" max="24" onchange="updateStat('wisdom')">
 				<p id="wisdom-mod">0</p>
 			</div>
-			<div class="statblock" id="charisma">
-				<label>Charisma</label><br>
-				<input id="Charisma-stat" type="text" value="10" maxlength="2">
-				<p id="Charisma-mod">0</p>
+		</div>
+		
+		<div class="statblock"\00>
+			<label>Charisma</label>
+			<div>
+				<input class="stat" id="charisma" type="number" value="10" maxlength="2" min="1" max="24" onchange="updateStat('charisma')">
+				<p id="charisma-mod">0</p>
 			</div>
 		</div>
-	</body>
+	</div>
+	
+	<div id="hpbar">
+		<p>Armor Class</p>
+		<p id="ac"></p>
+		<p>HP</p>
+		<p id="hp">0</p>
+		<p>Initiative</p>
+		<p id="init">0</p>
+	</div>
+</body>
+
 </html>
