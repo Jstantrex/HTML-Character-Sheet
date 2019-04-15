@@ -4,10 +4,13 @@
 <head>
 	<title>D&D Character Sheet</title>
 	<link rel="stylesheet" href="style.css" />
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" /> <!--fontawesome for free to use icons -->
 	<link rel="icon" href="pictures/icon.png" />
-	<script src="//cdnjs.cloudflare.com/ajax/libs/numbro/2.1.0/numbro.min.js"></script> <!-- numbro for formatting numbers -->
+	<!--fontawesome for free to use icons -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!-- JQuery -->
+	<!-- SweetAlert for cool popup menus and dialogue -->
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+	<script src="sweetalert2.all.min.js"></script>
 	<script src="scripts.js"></script>
 </head>
 
@@ -17,9 +20,10 @@
 			<h1>Name</h1>
 			<input type="text" />
 		</div>
+		
 		<div>
 			<h2>Class</h2>
-			<select id="class">
+			<select id="class" onchange="updateClass()">
 				<option>Select One</option>
 				<option value="barbarian">Barbarian</option>
 				<option value="bard">Bard</option>
@@ -38,28 +42,29 @@
 		</div>
 		<div>
 			<h2>Race</h2>
-			<select id="race">
+			<select id="race" onchange="updateRace()">
+				<!-- Commented out all Non-Player's Handbook Races -->
 				<option>Select One</option>
-				<option value="aarakocra">Aarakocra</option>
+				<!-- <option value="aarakocra">Aarakocra</option>
 				<option value="aasimar">Aasimar</option>
 				<option value="bugbear">Bugbear</option>
 				<option value="changeling">Changeling</option>
-				<option value="centaur">Centaur</option>
+				<option value="centaur">Centaur</option> -->
 				<option value="dragonborn">Dragonborn</option>
 				<option value="dwarf">Dwarf</option>
 				<option value="elf">Elf</option>
-				<option value="firbolg">Firbolg</option>
+				<!-- <option value="firbolg">Firbolg</option>
 				<option value="genasi">Genasi</option>
 				<option value="gith">Gith</option>
 				<option value="goblin">Goblin</option>
-				<option value="goliath">Goliath</option>
+				<option value="goliath">Goliath</option> -->
 				<option value="gnome">Gnome</option>
 				<option value="half-elf">Half-Elf</option>
 				<option value="halfling">Halfling</option>
 				<option value="half-orc">Half-Orc</option>
-				<option value="hobgoblin">Hobgoblin</option>
+				<!-- <option value="hobgoblin">Hobgoblin</option> -->
 				<option value="human">Human</option>
-				<option value="kalashtar">Kalashtar</option>
+				<!-- <option value="kalashtar">Kalashtar</option>
 				<option value="kenku">Kenku</option>
 				<option value="kobold">Kobold</option>
 				<option value="lizardfolk">Lizardfolk</option>
@@ -68,19 +73,19 @@
 				<option value="orc">Orc</option>
 				<option value="shifter">Shifter</option>
 				<option value="simic">Simic Hybrid</option>
-				<option value="tabaxi">Tabaxi</option>
+				<option value="tabaxi">Tabaxi</option> -->
 				<option value="tiefling">Tiefling</option>
-				<option value="tortle">Tortle</option>
+				<!-- <option value="tortle">Tortle</option>
 				<option value="triton">Triton</option>
 				<option value="vedalken">Vedalken</option>
 				<option value="warforged">Warforged</option>
-				<option value="yuan-ti">Yuan-ti Pureblood</option>
+				<option value="yuan-ti">Yuan-ti Pureblood</option> -->
 			</select>
 			<!--Race Drop Down-->
 		</div>
 		<div>
 			<h2>Subrace</h2>
-			<select id="subrace">
+			<select id="subrace" onchange="updateSubrace()">
 				<option>Select a Race</option>
 			</select>
 			<!--Subrace Drop Down-->
@@ -90,9 +95,18 @@
 			<select id="background">
 				<option>Select One</option>
 				<option value="acolyte">Acolyte</option>
-				<option value="anthropologist">Anthropologist</option>
-				<option value="archaeologist">Archaeologist</option>
-				<option value"azorius">Azorius Functionary</option>
+				<option value="charlatan">Charlatan</option>
+				<option value="criminal">Criminal</option>				
+				<option value="entertainer">Entertainer</option>				
+				<option value="folk hero">Folk Hero</option>				
+				<option value="guild artisan">Guild Artisan</option>				
+				<option value="hermit">Hermit</option>				
+				<option value="noble">Noble</option>				
+				<option value="outlander">Outlander</option>				
+				<option value="sage">Sage</option>				
+				<option value="sailor">Sailor</option>				
+				<option value="soldier">Soldier</option>				
+				<option value="urchin">Urchin</option>				
 			</select>
 			<!--Background Drop Down-->
 		</div>
@@ -112,65 +126,84 @@
 			<!--Alignment Drop Down-->
 		</div>
 	</div>
-	
+
 	<div id="stats">
+		<label>Strength</label>
 		<div class="statblock">
-			<label>Strength</label>
-			<div>
-				<input class="stat" id="strength" type="number" value="10" maxlength="2" min="1" max="24" onchange="updateStat('strength')">
-				<p id="strength-mod">0</p>
-			</div>
+			<input class="stat" id="strength" type="number" value="10" maxlength="2" min="1" max="24" onchange="updateTotalStat('strength')">
+			<p class="racialMod" id="strength-racial">0</p>
+			<input class="pickmod" type="checkbox"/>
+			<p class="totalStat" id="strength-total">10</p>
+			<p class="modifier" id="strength-mod">0</p>
 		</div>
-		
+
+		<label>Dexterity</label>
 		<div class="statblock">
-			<label>Dexterity</label>
-			<div>
-				<input class="stat" id="dexterity" type="number" value="10" maxlength="2" min="1" max="24" onchange="updateStat('dexterity')">
-				<p id="dexterity-mod">0</p>
-			</div>
+			<input class="stat" id="dexterity" type="number" value="10" maxlength="2" min="1" max="24" onchange="updateTotalStat('dexterity')">
+			<p class="racialMod" id="dexterity-racial">0</p>
+			<input class="pickmod" type="checkbox"/>
+			<p class="totalStat" id="dexterity-total">10</p>
+			<p class="modifier" id="dexterity-mod">0</p>
 		</div>
-		
+
+		<label>Constitution</label>
 		<div class="statblock">
-			<label>Constitution</label>
-			<div>
-				<input class="stat" id="constitution" type="number" value="10" maxlength="2" min="1" max="24" onchange="updateStat('constitution')">
-				<p id="constitution-mod">0</p>
-			</div>
+			<input class="stat" id="constitution" type="number" value="10" maxlength="2" min="1" max="24" onchange="updateTotalStat('constitution')">
+			<p class="racialMod" id="constitution-racial">0</p>
+			<input class="pickmod" type="checkbox"/>
+			<p class="totalStat" id="constitution-total">10</p>
+			<p class="modifier" id="constitution-mod">0</p>
 		</div>
-		
+
+		<label>Intelligence</label>
 		<div class="statblock">
-			<label>Intelligence</label>
-			<div>
-				<input class="stat" id="intelligence" type="number" value="10" maxlength="2" min="1" max="24" onchange="updateStat('intelligence')">
-				<p id="intelligence-mod">0</p>
-			</div>
+			<input class="stat" id="intelligence" type="number" value="10" maxlength="2" min="1" max="24" onchange="updateTotalStat('intelligence')">
+			<p class="racialMod" id="intelligence-racial">0</p>
+			<input class="pickmod" type="checkbox"/>
+			<p class="totalStat" id="intelligence-total">10</p>
+			<p class="modifier" id="intelligence-mod">0</p>
 		</div>
-		
+
+		<label>Wisdom</label>
 		<div class="statblock">
-			<label>Wisdom</label>
-			<div>
-				<input class="stat" id="wisdom" type="number" value="10" maxlength="2" min="1" max="24" onchange="updateStat('wisdom')">
-				<p id="wisdom-mod">0</p>
-			</div>
+			<input class="stat" id="wisdom" type="number" value="10" maxlength="2" min="1" max="24" onchange="updateTotalStat('wisdom')">
+			<p class="racialMod" id="wisdom-racial">0</p>
+			<input class="pickmod" type="checkbox"/>
+			<p class="totalStat" id="wisdom-total">10</p>
+			<p class="modifier" id="wisdom-mod">0</p>
 		</div>
-		
-		<div class="statblock"\00>
-			<label>Charisma</label>
-			<div>
-				<input class="stat" id="charisma" type="number" value="10" maxlength="2" min="1" max="24" onchange="updateStat('charisma')">
-				<p id="charisma-mod">0</p>
-			</div>
+
+		<label>Charisma</label>
+		<div class="statblock">
+			<input class="stat" id="charisma" type="number" value="10" maxlength="2" min="1" max="24" onchange="updateTotalStat('charisma')">
+			<p class="racialMod" id="charisma-racial">0</p>
+			<input class="pickmod" type="checkbox"/>
+			<p class="totalStat" id="charisma-total">10</p>
+			<p class="modifier" id="charisma-mod">0</p>
 		</div>
 	</div>
-	
+
 	<div id="hpbar">
 		<p>Armor Class</p>
-		<p id="ac"></p>
+		<select id="armor" onchange="updateAC()">
+		    <option>Select an Armor</option>
+		    <option value="padded">Padded</option>
+		    <option value="leather">Leather</option>
+		    <option value="studded">Studded Leather</option>
+		    <option value="hide">Hide</option>
+		    <option value="chainshirt">Chain Shirt</option>
+		    <option value="scale">Scale Mail</option>
+		    <option value="breastplate">Breastplate</option>
+		    <option value="halfplate">Half Plate</option>
+		    <option value="ring">Ring Mail</option>
+		    <option value="chainmail">Chain Mail</option>
+		    <option value="splint">Splint</option>
+		    <option value="plate">Plate</option>
+		</select>
+		<p id="ac">10</p>
 		<p>HP</p>
 		<p id="hp">0</p>
 		<p>Initiative</p>
 		<p id="init">0</p>
 	</div>
-</body>
-
-</html>
+</body></html>
