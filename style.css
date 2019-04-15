@@ -37,19 +37,55 @@ select{
 	flex-wrap: wrap;
 }
 
+
 #stats .statblock input {
 	height: 50px;
 	width: 50px;
 	text-align: center;
+	font-size: 16px;
 }
 
 .statblock {
 	display: flex;
 	flex-direction: row;
 	text-align: center;
-	align-content: center;
 	align-items: center;
 	justify-content: flex-start;
+}
+
+.pickmod {
+	display:none;
+	-webkit-transform: scale(0.5);
+	margin-left: -18px;
+}
+
+.racialMod {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid black;
+	width: 50px;
+	height: 50px;
+	margin: 0px 10px;
+}
+
+.totalStat {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid black;
+	width: 50px;
+	height: 50px;
+	margin: 0px 10px 0px 0px;
+}
+
+.modifier {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid black;
+	width: 50px;
+	height: 50px;
 }
 
 #stats .statblock input::-webkit-inner-spin-button,
