@@ -1,35 +1,35 @@
 * {
-	padding:0px;
+	padding: 0px;
 	margin: 0px;
 }
 
 
 /*****BASE ATTRIBUTES*****/
-select{
-   -webkit-appearance: button;
-   -webkit-border-radius: 2px;
-   -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
-   -webkit-padding-end: 20px;
-   -webkit-padding-start: 2px;
-   -webkit-user-select: none;
-   background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
-   background-position: 97% center;
-   background-repeat: no-repeat;
-   border: 1px solid #AAA;
-   color: #555;
-   font-size: inherit;
-   margin: 0px 15px 10px 0px;
-   overflow: hidden;
-   padding: 5px 10px;
-   text-overflow: ellipsis;
-   white-space: nowrap;
-   width: 200px;
+select {
+	-webkit-appearance: button;
+	-webkit-border-radius: 2px;
+	-webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+	-webkit-padding-end: 20px;
+	-webkit-padding-start: 2px;
+	-webkit-user-select: none;
+	background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+	background-position: 97% center;
+	background-repeat: no-repeat;
+	border: 1px solid #AAA;
+	color: #555;
+	font-size: inherit;
+	margin: 0px 15px 10px 0px;
+	overflow: hidden;
+	padding: 5px 10px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 200px;
 }
 
 /*****CLASS ATTRIBUTES*****/
 
 .name {
-	margin:0px 15px 10px 0px;
+	margin: 0px 15px 10px 0px;
 }
 
 .topBar {
@@ -54,7 +54,7 @@ select{
 }
 
 .pickmod {
-	display:none;
+	display: none;
 	-webkit-transform: scale(0.5);
 	margin-left: -18px;
 }
@@ -86,6 +86,21 @@ select{
 	border: 1px solid black;
 	width: 50px;
 	height: 50px;
+}
+
+.modalCheckbox {
+	display: flex;
+	flex-direction: row;
+	vertical-align: super;
+	margin: 7px 0px;
+	text-align: ;
+	text-transform: capitalize;
+}
+
+.modalCheckbox input {
+	-webkit-transform: scale(1.9);
+	
+	margin: 0px 20px 0px 185px;
 }
 
 #stats .statblock input::-webkit-inner-spin-button,

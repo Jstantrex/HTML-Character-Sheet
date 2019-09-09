@@ -205,5 +205,68 @@
 		<p id="hp">0</p>
 		<p>Initiative</p>
 		<p id="init">0</p>
+		<p>Speed</p>
+		<p id="speed">30</p>
+		<p>Proficiency Bonus</p>
+		<p id="profBonus">2</p>
+	</div>
+	
+	<div id="savingThrows">
+		<h3>Saving Throws</h3>
+		<input type="checkbox" id="strength-save-proficiency" disabled>Strength
+		<p id="strength-save">0</p>
+		<input type="checkbox" id="dexterity-save-proficiency" disabled>Dexterity
+		<p id="dexterity-save">0</p>
+		<input type="checkbox" id="constitution-save-proficiency" disabled>Constitution
+		<p id="constitution-save">0</p>
+		<input type="checkbox" id="intelligence-save-proficiency" disabled>Intelligence
+		<p id="intelligence-save">0</p>
+		<input type="checkbox" id="wisdom-save-proficiency" disabled>Wisdom
+		<p id="wisdom-save">0</p>
+		<input type="checkbox" id="charisma-save-proficiency" disabled>Charisma
+		<p id="charisma-save">0</p>
+	</div>
+	
+	<!-- I have decided to represent each block with the base stat associated.  The alternative would be to 
+	represent them inside of another data tuple like the top portion of scripts.js, but this allows me to 
+	get these values using a JQuery .attr lookup.-->
+	<div id="skills">
+		<h3>Skills</h3>
+		<input type="checkbox" base="dexterity" id="acrobatics-skill-proficiency" disabled>Acrobatics
+		<p id="acrobatics-skill">0</p>
+		<input type="checkbox" base="wisdom" id="animal-handling-skill-proficiency" disabled>Animal Handling
+		<p id="animal-handling-skill">0</p>
+		<input type="checkbox" base="intelligence" id="arcana-skill-proficiency" disabled>Arcana
+		<p id="arcana-skill">0</p>
+		<input type="checkbox" base="strength" id="athletics-skill-proficiency" disabled>Athletics
+		<p id="athletics-skill">0</p>
+		<input type="checkbox" base="charisma" id="deception-skill-proficiency" disabled>Deception
+		<p id="deception-skill">0</p>
+		<input type="checkbox" base="intelligence" id="history-skill-proficiency" disabled>History
+		<p id="history-skill">0</p>
+		<input type="checkbox" base="wisdom" id="insight-skill-proficiency" disabled>Insight
+		<p id="insight-skill">0</p>
+		<input type="checkbox" base="charisma" id="intimidation-skill-proficiency" disabled>Intimidation
+		<p id="intimidation-skill">0</p>
+		<input type="checkbox" base="intelligence" id="investigation-skill-proficiency" disabled>Investigation
+		<p id="investigation-skill">0</p>
+		<input type="checkbox" base="wisdom" id="medicine-skill-proficiency" disabled>Medicine
+		<p id="medicine-skill">0</p>
+		<input type="checkbox" base="intelligence" id="nature-skill-proficiency" disabled>Nature
+		<p id="nature-skill">0</p>
+		<input type="checkbox" base="wisdom" id="perception-skill-proficiency" disabled>Perception
+		<p id="perception-skill">0</p>
+		<input type="checkbox" base="charisma" id="performance-skill-proficiency" disabled>Performance
+		<p id="performance-skill">0</p>
+		<input type="checkbox" base="charisma" id="persuasion-skill-proficiency" disabled>Persuasion
+		<p id="persuasion-skill">0</p>
+		<input type="checkbox" base="intelligence" id="religion-skill-proficiency" disabled>Religion
+		<p id="religion-skill">0</p>
+		<input type="checkbox" base="dexterity" id="slight-of-hand-skill-proficiency" disabled>Sleight of Hand
+		<p id="slight-of-hand-skill">0</p>
+		<input type="checkbox" base="dexterity" id="stealth-skill-proficiency" disabled>Stealth
+		<p id="stealth-skill">0</p>
+		<input type="checkbox" base="wisdom" id="survival-skill-proficiency" disabled>Survival
+		<p id="survival-skill">0</p>
 	</div>
 </body></html>
